@@ -1,1 +1,1 @@
-Devlopment Mood . . . 🍓🧡
+Development Mode . . . 🍓🧡
