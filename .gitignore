@@ -1,0 +1,13 @@
+.venv
+.idea
+
+
+# Migrations
+task/migrations
+accounts/migrations
+
+# Static Files
+static/css
+static/js
+static/images
+

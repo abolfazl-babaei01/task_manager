@@ -1,0 +1,16 @@
+{% extends 'parent/base.html' %}
+
+{% block title %}
+	Task Detail
+{% endblock %}
+
+{% block content %}
+	<h1>{{ task.title }}</h1>
+    <br>
+    <h2>{{ task.description }}</h2>
+
+    <p>{{ task.due_date }}</p>
+    <p>{{ task.due_date_time }}</p>
+    <p>{{ task.priority }}</p>
+    <p>{{ task.is_completed }}</p>
+{% endblock %}

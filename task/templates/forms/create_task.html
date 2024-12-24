@@ -1,0 +1,55 @@
+{% extends 'parent/base.html' %}
+
+
+{% block title %}
+    Create Task
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Create Task</h2>
+        <form method="post">
+            {% csrf_token %}
+            <!-- Title -->
+            <div class="form-group">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter task title" required>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" name="description" class="form-control" placeholder="Enter task description"
+                          rows="4" required></textarea>
+            </div>
+
+            <!-- Due Date -->
+            <div class="form-group">
+                <label for="due_date" class="form-label">Due Date</label>
+                <input type="date" id="due_date" name="due_date" class="form-control" required>
+            </div>
+
+            <!-- Due Time -->
+            <div class="form-group">
+                <label for="due_date_time" class="form-label">Due Time</label>
+                <input type="time" id="due_date_time" name="due_date_time" class="form-control" required>
+            </div>
+
+            <!-- Priority -->
+            <div class="form-group">
+                <label for="priority" class="form-label">Priority</label>
+                <select id="priority" name="priority" class="priority-dropdown">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">Submit</button>
+
+        </form>
+    </div>
+
+
+{% endblock %}

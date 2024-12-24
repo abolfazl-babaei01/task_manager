@@ -1,0 +1,79 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="text-center">
+                <img src="{% static 'images/profile.jpg' %}" alt="Profile" class="profile-pic">
+                <h5 class="mt-2">User Name</h5>
+            </div>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1 p-4">
+            <!-- Toggle Button -->
+            <button class="btn btn-secondary toggle-btn" onclick="toggleSidebar()">☰</button>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <br>
+                <h2>Task List</h2>
+                <button class="btn btn-primary"><a href="{% url 'task:create_task' %}">Create Task</a></button>
+            </div>
+
+            <!-- Task List -->
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in user_tasks %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ task.title }}</td>
+                        <td class="task-actions">
+                            <button class="btn btn-sm btn-warning">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extera_js %}
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
+{% endblock %}
